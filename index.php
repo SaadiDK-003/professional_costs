@@ -143,40 +143,11 @@ if (!is_loggedin()) {
                                 </h3>
                             </div>
                             <!-- /.card-header -->
-                            <!-- form start -->
-                            <form id="pet_sitter">
-                                <div class="card-body">
-                                    <!-- row 1 start -->
-                                    <div class="row">
-                                        <div class="form-group col-lg-6 col-sm-12">
-                                            <label for="firstName">Pet Name <span class="text-danger">*</span></label>
-                                            <select name="pet_name" id="pet_name" class="form-control" required>
-                                                <option value="" selected hidden>Select Pet</option>
-                                                <option value="Cat">Cat</option>
-                                                <option value="Dog">Dog</option>
-                                                <option value="Mouse">Mouse</option>
-                                                <option value="Parrot">Parrot</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-lg-6 col-sm-12">
-                                            <label for="charges">Charges per Hour ($)<span class="text-danger">*</span></label>
-                                            <input type="text" name="charges" class="form-control" id="charges" placeholder="Eg. 5,10,20" required>
-                                        </div>
-                                        <div class="form-group col-lg-12 col-md-12">
-                                            <label for="services_offer">Services offer <span class="text-danger">*</span></label>
-                                            <input type="text" name="services_offer" class="form-control" id="services_offer" placeholder="Eg. Dog Walk, Dog Sitting, Cat Care etc." required>
-                                        </div>
-                                    </div>
-                                    <!-- row 1 end -->
+                            <div class="card-body">
+                                <!-- row 1 start -->
+                                <div class="row">
                                 </div>
-                                <!-- /.card-body -->
-                                <input type="hidden" name="p" value="pet_sitter_service">
-                                <input type="hidden" name="edit_id" value="">
-                                <div class="card-footer text-right">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
-                        </div>
+                            </div>
                         <!-- /.card -->
                     </div>
                     <!--/.col (left) -->
