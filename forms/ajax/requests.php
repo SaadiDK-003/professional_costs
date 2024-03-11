@@ -266,6 +266,13 @@ if (isset($_POST['acceptReq'])) {
     }
 }
 
+if(isset($_POST['get_dept_by_emp_id'])) {
+    $empID = $_POST['get_dept_by_emp_id'];
+    $getDept = $db->query("CALL `get_dept_by_emp_id`($empID)");
+    $getDept = mysqli_fetch_object($getDept);
+    echo json_encode(['id'=>$getDept->id,'name'=>$getDept->department_name]);
+}
+
 if (isset($_POST['edit_sitter_info'])) {
     $edit_sitter_info = $_POST['edit_sitter_info'];
     $sql = $db->query("SELECT `id`,`pet_name`,`charges`,`services_offer` FROM `pet_sitter` WHERE `id`='$edit_sitter_info'");
@@ -279,6 +286,42 @@ if (isset($_POST['getSitterInfo'])) {
     $sql = $db->query("SELECT * FROM `users` WHERE `id`='$getSitterInfo'");
     $fetchSitterInfo = mysqli_fetch_object($sql);
     echo json_encode($fetchSitterInfo);
+}
+
+
+if(isset($_POST['task_title']) && isset($_POST['task_desc'])) {
+    $cols = '';
+    $values = '';
+    foreach($_POST as $key => $value){
+        $cols .= $key.',';
+        $values .= "'".$value."',";
+    }
+    $cols = substr($cols, 0, strlen($cols) -1);
+    $values = substr($values, 0, strlen($values) -1);
+    $add_task = $db->query("INSERT INTO `task` ($cols) VALUES($values)");
+    if($add_task) {
+        echo json_encode(['class_'=>'alert-success','msg'=>'Task Added Successfully.']);
+    }
+}
+
+if(isset($_POST['getTaskInfo'])) {
+    $getTaskInfo = $_POST['getTaskInfo'];
+    $getTaskQ = $db->query("SELECT * FROM `task` WHERE `id`='$getTaskInfo'");
+    $getTask = mysqli_fetch_object($getTaskQ);
+    $arr = ['id'=>$getTask->id,'comments'=>$getTask->comments]; 
+    echo json_encode($arr);
+}
+
+if(isset($_POST['task_id'])) {
+    $task_id = $_POST['task_id'];
+    $comments = $_POST['comments'];
+    $task_progress = $_POST['task_progress'];
+    $task_status = $_POST['task_status'];
+
+    $upd_task = $db->query("UPDATE `task` SET `task_progress`='$task_progress',`task_status`='$task_status',`comments`='$comments' WHERE `id`='$task_id'");
+    if($upd_task){
+        echo json_encode(['class_'=>'alert-success p-2','msg'=>'Task Updated Successfully.']);
+    }
 }
 
 ?>

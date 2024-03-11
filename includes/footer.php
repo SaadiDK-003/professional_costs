@@ -76,10 +76,12 @@
       "ordering": true,
       "info": true,
       "autoWidth": false,
-      "responsive": true,
+      "responsive": true
+    });
+    $('#task_table').DataTable({
       "columnDefs": [{
-        "width": "25%",
-        "targets": 2
+        "width":"25%",
+        "targets": 1
       }]
     });
 

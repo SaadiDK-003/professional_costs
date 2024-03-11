@@ -30,6 +30,7 @@
                     </a>
                 </li>
                 <?php if ($role == 'director') { ?>
+                    <!-- ADD and Manage Departments -->
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon far fa-building"></i>
@@ -53,7 +54,7 @@
                             </li>
                         </ul>
                     </li>
-
+                    <!-- ADD and Manage Employees -->
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-user-friends"></i>
@@ -76,8 +77,39 @@
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                    <!-- ADD and Manage Task -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-user-friends"></i>
+                            <p>
+                                Task
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= site_url ?>forms/add_task.php" class="nav-link">
+                                    <i class=""></i>
+                                    <p>Add Task</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= site_url ?>pages/employees_list.php" class="nav-link">
+                                    <i class=""></i>
+                                    <p>Manage Task</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li> 
 
+                <?php } else { ?>
+                    <li class="nav-item">
+                    <a href="<?=site_url?>pages/view_task.php" class="nav-link">
+                        <i class="nav-icon far fa-user text-info"></i>
+                        <p>View Task</p>
+                    </a>
+                </li>
                 <?php } ?>
                 <li class="nav-item">
                     <a href="<?=site_url?>forms/edit-profile.php" class="nav-link">
