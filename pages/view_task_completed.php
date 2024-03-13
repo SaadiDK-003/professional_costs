@@ -1,6 +1,6 @@
 <?php
 require_once '../core/database.php';
-$pageTitle = 'View Task';
+$pageTitle = 'View Task Completed';
 if (!is_loggedin()) {
 ?><script>
         window.location.href = "../login.php";
@@ -53,12 +53,11 @@ if (!is_loggedin()) {
                                     <th>End Date</th>
                                     <th>progress <span class="text-success">%</span></th>
                                     <th>Status</th>
-                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                     <?php
-                                $getData = $db->query("CALL `get_task_by_id`($id)");
+                                $getData = $db->query("CALL `get_task_by_id_completed`($id)");
                                 while ($row = mysqli_fetch_object($getData)) {
                                     $taskStatus = $row->task_status;
                                     $pri = $row->task_priority;
@@ -115,9 +114,6 @@ if (!is_loggedin()) {
                                             <?php endif; ?>
 
                                         </td>
-                                        <td>
-                                        <a data-id="<?= $row->id ?>" class="btn btn-sm btn-info btn-primary" data-toggle="modal" data-target="#modal-default">Update</a>
-                                        </td>
                                     </tr>
                                 <?php }
                                 $getData->close();
@@ -132,7 +128,6 @@ if (!is_loggedin()) {
                                     <th>End Date</th>
                                     <th>progress <span class="text-success">%</span></th>
                                     <th>Status</th>
-                                    <th>Action</th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -221,45 +216,3 @@ if (!is_loggedin()) {
 <!-- /.modal -->
 
 <?php include_once '../includes/footer.php'; ?>
-<script>
-    $(document).ready(function() {
-
-        $('#update_task').on('submit', function(e) {
-            e.preventDefault();
-            let formData = $(this).serialize();
-            $.ajax({
-                url: '<?=site_url?>forms/ajax/requests.php',
-                method: 'post',
-                data: formData,
-                success: function(res) {
-                    let response = JSON.parse(res);
-                    $('#updMsg').addClass(response.class_).html(response.msg);
-                    setTimeout(function() {
-                        location.reload();
-                    }, 1800);
-                }
-            });
-        });
-
-        $('.btn-info').on('click', function(e) {
-            e.preventDefault();
-            let getTaskInfo = $(this).data('id');
-            $.ajax({
-                url: '<?=site_url?>forms/ajax/requests.php',
-                method: 'post',
-                data: {
-                    getTaskInfo: getTaskInfo
-                },
-                success: function(response) {
-                    let res = JSON.parse(response);
-                    console.log(res);
-                    $('#task_id').val(res.id);
-                    $('#comments').val(res.comments);
-                    $('#task_progress').val(res.progress);
-                    $('#task_status').val(res.status);
-                }
-            })
-        });
-
-    });
-</script>

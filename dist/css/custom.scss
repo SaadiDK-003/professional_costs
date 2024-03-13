@@ -34,10 +34,22 @@ img {
   }
 }
 
-
 .msg-table {
   &.edit {
     top: 4px;
     right: 10px;
+  }
+}
+
+.prog {
+  position: relative;
+  span {
+    position: absolute;
+    right: 0;
+    top: -12px;
+  }
+  progress {
+    vertical-align: middle;
+    width: 100%;
   }
 }

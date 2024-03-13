@@ -108,6 +108,7 @@ if (!is_loggedin()) {
                 </button>
             </div>
             <div class="modal-body">
+                <h5 id="showMsg" class="text-center"></h5>
                 <form id="update_dept">
                     <div class="row">
                         <div class="col-12">
@@ -124,6 +125,7 @@ if (!is_loggedin()) {
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" name="dept_update_id" id="dept_update_id">
                 </form>
             </div>
             <div class="modal-footer justify-content-between">
@@ -140,24 +142,28 @@ if (!is_loggedin()) {
 <script>
     $(document).ready(function() {
 
-        $('#edit_employee').on('submit', function(e) {
+        $('#update_dept').on('submit', function(e) {
             e.preventDefault();
-            let formData = new FormData(this);
-            console.log(formData);
+            let formData = $(this).serialize();
             $.ajax({
                 url: '<?=site_url?>forms/ajax/requests.php',
                 method: 'post',
                 data: formData,
                 success: function(res) {
+                    console.log(res);
                     let response = JSON.parse(res);
-                    $('.msg-table').addClass(response.class_).html(response.msg);
-                    setTimeout(function() {
-                        location.reload();
-                    }, 1800);
-                },
-                cache:false,
-                contentType:false,
-                processData:false
+                    $('#showMsg').addClass(response.class_).html(response.msg);
+                    if(response.status == 'success') {
+                        setTimeout(function() {
+                            location.reload();
+                        }, 1500);
+                    } else {
+                        setTimeout(function() {
+                            $('#showMsg').removeClass(response.class_).html('');
+                        }, 1200);
+                    }
+
+                }
             });
         });
 
@@ -168,11 +174,11 @@ if (!is_loggedin()) {
                 url: '<?=site_url?>forms/ajax/requests.php',
                 method: 'post',
                 data: {
-                    getInfo: getInfo
+                    getDepInfo: getInfo
                 },
                 success: function(response) {
                     let res = JSON.parse(response);
-                    console.log(res);
+                    $('#dept_update_id').val(res.id);
                     $('#dept_name').val(res.name);
                     // let res = JSON.parse(response);
                     // $('.modal-body h5.name span').html(res.username);

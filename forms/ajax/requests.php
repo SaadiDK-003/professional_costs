@@ -168,6 +168,22 @@ if (isset($_POST['department_name'])) {
     }
 }
 
+if(isset($_POST['dept_update_id'])) {
+    $dptID = $_POST['dept_update_id'];
+    $dep_name = $_POST['dept_name'];
+
+    $check = $db->query("SELECT * FROM `departments` WHERE `department_name`='$dep_name'");
+    if(mysqli_num_rows($check) > 0){
+        echo json_encode(['class_'=>'alert-warning p-2','msg'=>'Department Already Exist!','status'=>'error']);
+    } else {
+        $dep_upd = $db->query("UPDATE `departments` SET `department_name`='$dep_name' WHERE `id`='$dptID'");
+        if($dep_upd) {
+            echo json_encode(['class_'=>'alert-success p-2','msg'=>'Department Updated Successfully.','status'=>'success']);
+        }
+    }
+
+}
+
 if(isset($_POST['add_emp'])) {
     $cols = '';
     $values = '';
@@ -248,9 +264,9 @@ if(isset($_POST['edit_emp'])) {
     }
 
     
-if(isset($_POST['getInfo'])){
-    $getInfo = $_POST['getInfo'];
-    $deptQ = $db->query("SELECT * FROM `departments` WHERE `id`='$getInfo'");
+if(isset($_POST['getDepInfo'])){
+    $getDepInfo = $_POST['getDepInfo'];
+    $deptQ = $db->query("SELECT * FROM `departments` WHERE `id`='$getDepInfo'");
     $dept = mysqli_fetch_object($deptQ);
     echo json_encode(['id'=>$dept->id,'name'=>$dept->department_name]);
 }
@@ -289,12 +305,15 @@ if (isset($_POST['getSitterInfo'])) {
 }
 
 
-if(isset($_POST['task_title']) && isset($_POST['task_desc'])) {
+if(isset($_POST['add_task_db'])) {
+
     $cols = '';
     $values = '';
     foreach($_POST as $key => $value){
-        $cols .= $key.',';
-        $values .= "'".$value."',";
+        if($key != 'add_task_db')
+            $cols .= $key.',';
+        if($value != 'add_task_db')
+            $values .= "'".$value."',";
     }
     $cols = substr($cols, 0, strlen($cols) -1);
     $values = substr($values, 0, strlen($values) -1);
@@ -308,7 +327,7 @@ if(isset($_POST['getTaskInfo'])) {
     $getTaskInfo = $_POST['getTaskInfo'];
     $getTaskQ = $db->query("SELECT * FROM `task` WHERE `id`='$getTaskInfo'");
     $getTask = mysqli_fetch_object($getTaskQ);
-    $arr = ['id'=>$getTask->id,'comments'=>$getTask->comments]; 
+    $arr = ['id'=>$getTask->id,'comments'=>$getTask->comments,'progress'=>$getTask->task_progress,'status'=>$getTask->task_status]; 
     echo json_encode($arr);
 }
 
@@ -321,6 +340,36 @@ if(isset($_POST['task_id'])) {
     $upd_task = $db->query("UPDATE `task` SET `task_progress`='$task_progress',`task_status`='$task_status',`comments`='$comments' WHERE `id`='$task_id'");
     if($upd_task){
         echo json_encode(['class_'=>'alert-success p-2','msg'=>'Task Updated Successfully.']);
+    }
+}
+
+if(isset($_POST['getTaskEditInfo'])) {
+    $getTaskEditInfo = $_POST['getTaskEditInfo'];
+    $getTaskEditQ = $db->query("SELECT * FROM `task` WHERE `id`='$getTaskEditInfo'");
+    $TaskEdit_data = mysqli_fetch_object($getTaskEditQ);
+    echo json_encode(['id'=>$TaskEdit_data->id,'title'=>$TaskEdit_data->task_title,'desc'=>$TaskEdit_data->task_desc,'priority'=>$TaskEdit_data->task_priority,'end_date'=>$TaskEdit_data->task_end_date]);
+}
+
+if(isset($_POST['task_upd_id_dir'])) {
+    $values = array();
+    $upd_id = $_POST['task_upd_id_dir'];
+    foreach($_POST as $key => $val){
+        if($key != 'task_upd_id_dir')
+            $values[] .= $key.'='."'".$val."'";
+    }
+    $values = join(',', $values);
+    
+    $upd_db = $db->query("UPDATE `task` SET $values WHERE `id`='$upd_id'");
+    if($upd_db) {
+        echo json_encode(['class_'=>'alert-success p-2','msg'=>'Task Updated Successfully.']);
+    }
+}
+
+if(isset($_POST['delete_task'])) {
+    $del_task = $_POST['delete_task'];
+    $del_task = $db->query("DELETE FROM `task` WHERE `id`='$del_task'");
+    if($del_task) {
+        echo json_encode(['class_'=>'alert-success p-2','msg'=>'Task Deleted Successfully.']);
     }
 }
 

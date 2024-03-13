@@ -42,13 +42,13 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="<?= site_url ?>forms/add_department.php" class="nav-link">
-                                    <i class=""></i>
+                                    <i class="nav-icon far fa-circle"></i>
                                     <p>Add Department</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="<?= site_url ?>pages/departments_list.php" class="nav-link">
-                                    <i class=""></i>
+                                    <i class="nav-icon far fa-circle"></i>
                                     <p>Manage Department</p>
                                 </a>
                             </li>
@@ -66,13 +66,13 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="<?= site_url ?>forms/add_employee.php" class="nav-link">
-                                    <i class=""></i>
+                                    <i class="nav-icon far fa-circle"></i>
                                     <p>Register new Employee</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="<?= site_url ?>pages/employees_list.php" class="nav-link">
-                                    <i class=""></i>
+                                    <i class="nav-icon far fa-circle"></i>
                                     <p>Manage Employees</p>
                                 </a>
                             </li>
@@ -81,7 +81,7 @@
                     <!-- ADD and Manage Task -->
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-user-friends"></i>
+                            <i class="nav-icon fas fa-file"></i>
                             <p>
                                 Task
                                 <i class="fas fa-angle-left right"></i>
@@ -90,26 +90,50 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="<?= site_url ?>forms/add_task.php" class="nav-link">
-                                    <i class=""></i>
+                                    <i class="nav-icon far fa-circle"></i>
                                     <p>Add Task</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="<?= site_url ?>pages/employees_list.php" class="nav-link">
-                                    <i class=""></i>
-                                    <p>Manage Task</p>
+                                <a href="<?= site_url ?>pages/task_list.php" class="nav-link">
+                                    <i class="nav-icon far fa-circle"></i>
+                                    <p>In-Progress Task</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= site_url ?>pages/task_list_completed.php" class="nav-link">
+                                    <i class="nav-icon far fa-circle"></i>
+                                    <p>Completed Task</p>
                                 </a>
                             </li>
                         </ul>
                     </li> 
 
                 <?php } else { ?>
+
                     <li class="nav-item">
-                    <a href="<?=site_url?>pages/view_task.php" class="nav-link">
-                        <i class="nav-icon far fa-user text-info"></i>
-                        <p>View Task</p>
-                    </a>
-                </li>
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-file"></i>
+                            <p>
+                                Task
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?=site_url?>pages/view_task.php" class="nav-link">
+                                    <i class="nav-icon far fa-circle text-info"></i>
+                                    <p>View Task</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= site_url ?>pages/view_task_completed.php" class="nav-link">
+                                    <i class="nav-icon far fa-circle text-info"></i>
+                                    <p>Completed Task</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li> 
                 <?php } ?>
                 <li class="nav-item">
                     <a href="<?=site_url?>forms/edit-profile.php" class="nav-link">

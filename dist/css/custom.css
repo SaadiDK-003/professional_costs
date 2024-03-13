@@ -35,4 +35,17 @@ img.avatar-img {
 .msg-table.edit {
   top: 4px;
   right: 10px;
+}
+
+.prog {
+  position: relative;
+}
+.prog span {
+  position: absolute;
+  right: 0;
+  top: -12px;
+}
+.prog progress {
+  vertical-align: middle;
+  width: 100%;
 }/*# sourceMappingURL=custom.css.map */

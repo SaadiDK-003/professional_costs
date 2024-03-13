@@ -108,6 +108,7 @@ select[name="department_id"] {
                                     </div>
                                     <div class="col-12 d-flex justify-content-end mt-3">
                                         <div class="form-group">
+                                            <input type="hidden" name="add_task_db" value="add_task_db">
                                             <button type="submit" class="btn btn-primary">Add Task</button>
                                             </select>
                                         </div>
@@ -168,6 +169,7 @@ select[name="department_id"] {
                 success: function(res) {
                     // console.log(res);
                     let response = JSON.parse(res);
+                    // console.log(response);
                     $('.msg-table').addClass(response.class_).html(response.msg);
                     setTimeout(function() {
                         location.reload();
