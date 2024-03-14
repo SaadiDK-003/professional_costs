@@ -16,4 +16,5 @@ if(isset($_SESSION['user'])) {
     $username = $data->name;
     $status = $data->status;
     $role = $data->role;
+    $avatar = $data->avatar;
 }

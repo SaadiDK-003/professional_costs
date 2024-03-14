@@ -1,6 +1,6 @@
 <?php
 require_once '../core/database.php';
-$pageTitle = 'Task List Completed';
+$pageTitle = 'Completed Task';
 if (!is_loggedin()) {
 ?><script>
         window.location.href = "../login.php";

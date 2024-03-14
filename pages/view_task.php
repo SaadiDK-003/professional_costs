@@ -1,6 +1,6 @@
 <?php
 require_once '../core/database.php';
-$pageTitle = 'View Task';
+$pageTitle = 'Task In-Progress';
 if (!is_loggedin()) {
 ?><script>
         window.location.href = "../login.php";
