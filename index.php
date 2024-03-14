@@ -135,7 +135,7 @@ if (!is_loggedin()) {
                 <div class="row">
                     <div class="col-12 col-sm-6 col-md-4">
                         <div class="info-box">
-                            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-file"></i></span>
+                            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-tasks"></i></span>
                             <div class="info-box-content">
                                 <span class="info-box-text">In-Progress Task</span>
                                 <a href="<?=site_url?>pages/view_task.php" class="btn btn-sm btn-primary w-25">View</a>
@@ -145,7 +145,7 @@ if (!is_loggedin()) {
 
                     <div class="col-12 col-sm-6 col-md-4">
                         <div class="info-box mb-3">
-                            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-thumbs-up"></i></span>
+                            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-tasks"></i></span>
                             <div class="info-box-content">
                                 <span class="info-box-text">Completed Task</span>
                                 <a href="<?=site_url?>pages/view_task_completed.php" class="btn btn-sm btn-primary w-25">View</a>
@@ -155,7 +155,7 @@ if (!is_loggedin()) {
 
                     <div class="col-12 col-sm-6 col-md-4">
                         <div class="info-box mb-3">
-                            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-thumbs-up"></i></span>
+                            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-chalkboard-teacher"></i></span>
                             <div class="info-box-content">
                                 <span class="info-box-text">Check Meetings</span>
                                 <a href="<?=site_url?>pages/view_meetings.php" class="btn btn-sm btn-primary w-25">View</a>

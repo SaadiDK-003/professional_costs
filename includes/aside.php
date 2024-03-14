@@ -81,7 +81,7 @@
                     <!-- ADD and Manage Task -->
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-file"></i>
+                            <i class="nav-icon fas fa-tasks"></i>
                             <p>
                                 Task
                                 <i class="fas fa-angle-left right"></i>
@@ -137,7 +137,7 @@
 
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-file"></i>
+                            <i class="nav-icon fas fa-tasks"></i>
                             <p>
                                 Task
                                 <i class="fas fa-angle-left right"></i>
