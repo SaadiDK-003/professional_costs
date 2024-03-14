@@ -1,2 +1,4 @@
 *.txt
 register.php
+uploads/*.png
+uploads/*.jpg

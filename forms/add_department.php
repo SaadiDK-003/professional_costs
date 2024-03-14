@@ -117,7 +117,7 @@ if (!is_loggedin()) {
                     let response = JSON.parse(res);
                     $('.msg-table').addClass(response.class_).html(response.msg);
                     setTimeout(function() {
-                        // location.reload()
+                        location.reload();
                     }, 1800);
                 }
             });
