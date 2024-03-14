@@ -1,20 +1,15 @@
 <?php
 require_once '../core/database.php';
-$pageTitle = 'Department List';
+$pageTitle = 'View Meetings';
 if (!is_loggedin()) {
 ?><script>
         window.location.href = "../login.php";
     </script><?php
-            } else if($role != 'director') {
-             ?>
-             <script>
-            window.location.href = "../index.php";
-        </script>
-             <?php
             }
+             ?>
+             <?php
             include_once '../includes/header.php';
             include_once '../includes/aside.php';
-
                 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -40,7 +35,7 @@ if (!is_loggedin()) {
 <section class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-lg-6">
+            <div class="col-12">
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title"><?=$pageTitle?></h3>
@@ -48,26 +43,24 @@ if (!is_loggedin()) {
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table id="example2" class="table table-bordered table-hover text-center">
+                        <table id="task_table" class="table table-bordered table-hover text-center">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Department Name</th>
-                                    <th>Action</th>
+                                    <th>Meeting Title</th>
+                                    <th>Meeting Time</th>
+                                    <th>Meeting Link</th>
                                 </tr>
                             </thead>
                             <tbody>
                                     <?php
-                                $getData = $db->query("CALL `get_departments`()");
+                                $getData = $db->query("CALL `get_meetings_by_ids`($id)");
                                 while ($row = mysqli_fetch_object($getData)) {
                                 ?>
                                     <tr>
-                                        <td><?= $row->id ?></td>
-                                        <td><?= $row->department_name ?></td>
+                                        <td><?= $row->meeting_title ?></td>
+                                        <td><?= $row->joining_date ?></td>
                                         <td>
-                                        <a data-id="<?= $row->id ?>" class="btn btn-sm btn-info btn-primary" data-toggle="modal" data-target="#modal-default">Edit</a>
-                                        <!-- |
-                                            <a data-id="< ?= $row->id ?>" class="btn btn-sm btn-danger btn-delete">Remove</a> -->
+                                            <a href="<?= $row->meeting_link ?>" target="_blank" class="btn btn-primary">Join Meeting</a>
                                         </td>
                                     </tr>
                                 <?php }
@@ -77,9 +70,9 @@ if (!is_loggedin()) {
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Department Name</th>
-                                    <th>Action</th>
+                                    <th>Meeting Title</th>
+                                    <th>Meeting Time</th>
+                                    <th>Meeting Link</th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -103,30 +96,58 @@ if (!is_loggedin()) {
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Department Update</h4>
+                <h4 class="modal-title">Task Update</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <h5 id="showMsg" class="text-center"></h5>
-                <form id="update_dept">
+                <h5 id="updMsg" class="text-center"></h5>
+                <form id="update_task">
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
-                            <label for="dept_name">Department Name</label>
-                            <input type="text" name="dept_name" id="dept_name" class="form-control">
+                            <label for="comments">Comments</label>
+                            <input type="text" name="comments" id="comments" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="form-group">
+                            <label for="task_progress">Progress <span class="text-success">%</span></label>
+                            <select name="task_progress" id="task_progress" class="form-control">
+                                <option value="" selected hidden>Select Progress</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                                <option value="40">40</option>
+                                <option value="50">50</option>
+                                <option value="60">60</option>
+                                <option value="70">70</option>
+                                <option value="80">80</option>
+                                <option value="90">90</option>
+                                <option value="100">100</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="form-group">
+                            <label for="task_progress">Status</label>
+                            <select name="task_status" id="task_status" class="form-control">
+                                <option value="" selected hidden>Select status</option>
+                                <option value="progress">In Progress</option>
+                                <option value="completed">Completed</option>
+                            </select>
                             </div>
                         </div>
                         <div class="col-12 d-flex justify-content-end">
                             <div class="form-group">
-                            <button type="submit" name="upd_dept" id="upd_dept" class="btn btn-primary">
+                            <input type="hidden" id="task_id" name="task_id">
+                            <button type="submit" name="upd_task" id="upd_task" class="btn btn-primary">
                                 Update
                             </button>
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" name="dept_update_id" id="dept_update_id">
                 </form>
             </div>
             <div class="modal-footer justify-content-between">
@@ -143,7 +164,7 @@ if (!is_loggedin()) {
 <script>
     $(document).ready(function() {
 
-        $('#update_dept').on('submit', function(e) {
+        $('#update_task').on('submit', function(e) {
             e.preventDefault();
             let formData = $(this).serialize();
             $.ajax({
@@ -151,56 +172,33 @@ if (!is_loggedin()) {
                 method: 'post',
                 data: formData,
                 success: function(res) {
-                    console.log(res);
                     let response = JSON.parse(res);
-                    $('#showMsg').addClass(response.class_).html(response.msg);
-                    if(response.status == 'success') {
-                        setTimeout(function() {
-                            location.reload();
-                        }, 1500);
-                    } else {
-                        setTimeout(function() {
-                            $('#showMsg').removeClass(response.class_).html('');
-                        }, 1200);
-                    }
-
+                    $('#updMsg').addClass(response.class_).html(response.msg);
+                    setTimeout(function() {
+                        location.reload();
+                    }, 1800);
                 }
             });
         });
 
         $('.btn-info').on('click', function(e) {
             e.preventDefault();
-            let getInfo = $(this).data('id');
+            let getTaskInfo = $(this).data('id');
             $.ajax({
                 url: '<?=site_url?>forms/ajax/requests.php',
                 method: 'post',
                 data: {
-                    getDepInfo: getInfo
+                    getTaskInfo: getTaskInfo
                 },
                 success: function(response) {
                     let res = JSON.parse(response);
-                    $('#dept_update_id').val(res.id);
-                    $('#dept_name').val(res.name);
+                    console.log(res);
+                    $('#task_id').val(res.id);
+                    $('#comments').val(res.comments);
+                    $('#task_progress').val(res.progress);
+                    $('#task_status').val(res.status);
                 }
             })
-        });
-
-        $('.btn-delete').on('click', function(e) {
-            e.preventDefault();
-            let id = $(this).data('id');
-            $.ajax({
-                url: '<?=site_url?>forms/ajax/requests.php',
-                method: 'post',
-                data: {
-                    delete_department: id
-                },
-                success: function(res) {
-                    $('.msg-table').html(res);
-                    setTimeout(function() {
-                        location.reload()
-                    }, 1800);
-                }
-            });
         });
 
     });

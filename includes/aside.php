@@ -107,7 +107,31 @@
                                 </a>
                             </li>
                         </ul>
-                    </li> 
+                    </li>
+                    <!-- ADD and Manage Meeting -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">   
+                            <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                            <p>
+                                Meeting
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= site_url ?>forms/add_meeting.php" class="nav-link">
+                                    <i class="nav-icon far fa-circle"></i>
+                                    <p>Add Meeting</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= site_url ?>pages/check_meetings.php" class="nav-link">
+                                    <i class="nav-icon far fa-circle"></i>
+                                    <p>Manage Meeting</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
                 <?php } else { ?>
 
@@ -133,14 +157,14 @@
                                 </a>
                             </li>
                         </ul>
-                    </li> 
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?=site_url?>pages/view_meetings.php" class="nav-link">
+                            <i class="nav-icon fas fa-chalkboard-teacher text-info"></i>
+                            <p>Check Meetings</p>
+                        </a>
+                    </li>
                 <?php } ?>
-                <li class="nav-item">
-                    <a href="<?=site_url?>forms/edit-profile.php" class="nav-link">
-                        <i class="nav-icon far fa-user text-info"></i>
-                        <p>Profile (View/Edit)</p>
-                    </a>
-                </li>
                 <li class="nav-item">
                     <a href="<?= site_url ?>logout.php" class="nav-link">
                         <i class="nav-icon fas fa-circle text-danger"></i>

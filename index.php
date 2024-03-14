@@ -55,7 +55,7 @@ if (!is_loggedin()) {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                         <?php
+                                        <?php
                                         $getData = $db->query("CALL `get_list_employees`()");
                                         while ($row = mysqli_fetch_object($getData)) {
                                         ?>
@@ -66,7 +66,7 @@ if (!is_loggedin()) {
                                                 <td><?= $row->designation ?></td>
                                                 <td><?= $row->department_name ?></td>
                                                 <td>
-                                                <a href="forms/edit_employee.php?emp_id=<?= $row->id ?>" class="btn btn-sm btn-primary">Edit</a> |
+                                                    <a href="forms/edit_employee.php?emp_id=<?= $row->id ?>" class="btn btn-sm btn-primary">Edit</a> |
                                                     <a data-id="<?= $row->id ?>" class="btn btn-sm btn-danger btn-delete">Remove</a>
                                                 </td>
                                             </tr>
@@ -133,27 +133,37 @@ if (!is_loggedin()) {
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <!-- left column -->
-                    <div class="col-md-12">
-                        <!-- general form elements -->
-                        <div class="card card-secondary">
-                            <div class="card-header">
-                                <h3 class="card-title msg">
-                                    <!-- If you need clarification while filling this form then please email us at <strong class="text-warning">support@octoinsurance.com</strong> or call us at <strong class="text-warning">469-898-8348</strong> -->
-                                </h3>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-file"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">In-Progress Task</span>
+                                <a href="<?=site_url?>pages/view_task.php" class="btn btn-sm btn-primary w-25">View</a>
                             </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                                <!-- row 1 start -->
-                                <div class="row">
-                                </div>
-                            </div>
-                        <!-- /.card -->
+                        </div>
                     </div>
-                    <!--/.col (left) -->
+
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="info-box mb-3">
+                            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-thumbs-up"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Completed Task</span>
+                                <a href="<?=site_url?>pages/view_task_completed.php" class="btn btn-sm btn-primary w-25">View</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="info-box mb-3">
+                            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-thumbs-up"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">Check Meetings</span>
+                                <a href="<?=site_url?>pages/view_meetings.php" class="btn btn-sm btn-primary w-25">View</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
+            </div>
         </section>
         <!-- /.content -->
     <?php }  ?>

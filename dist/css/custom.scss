@@ -53,3 +53,18 @@ img {
     width: 100%;
   }
 }
+
+.info-box {
+  .info-box-text {
+    font-size: 22px;
+  }
+  .info-box-number {
+    font-size: 20px;
+  }
+  a {
+    align-self: flex-end;
+  }
+}
+.card-header::after {
+  content: unset;
+}

@@ -16,11 +16,6 @@ if (!is_loggedin()) {
             include_once '../includes/aside.php';
 
                 ?>
-<style>
-    .card-header::after {
-        content: unset;
-    }
-</style>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->

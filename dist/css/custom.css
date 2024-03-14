@@ -48,4 +48,18 @@ img.avatar-img {
 .prog progress {
   vertical-align: middle;
   width: 100%;
+}
+
+.info-box .info-box-text {
+  font-size: 22px;
+}
+.info-box .info-box-number {
+  font-size: 20px;
+}
+.info-box a {
+  align-self: flex-end;
+}
+
+.card-header::after {
+  content: unset;
 }/*# sourceMappingURL=custom.css.map */

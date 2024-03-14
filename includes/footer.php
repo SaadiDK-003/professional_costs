@@ -49,6 +49,8 @@
 <script src="<?= site_url ?>plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="<?= site_url ?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?= site_url ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- Select2 -->
+<script src="<?= site_url ?>plugins/select2/js/select2.full.min.js"></script>
 <!-- InputMask -->
 <script src="<?= site_url ?>plugins/moment/moment.min.js"></script>
 <script src="<?= site_url ?>plugins/inputmask/jquery.inputmask.min.js"></script>
