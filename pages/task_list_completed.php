@@ -56,8 +56,9 @@ if (!is_loggedin()) {
                                     <th>Priority</th>
                                     <th>End Date</th>
                                     <th>Progress <span class="text-success">%</span></th>
+                                    <th>Points</th>
                                     <th>Status</th>
-                                    <th>Action</th>
+                                    <!-- <th>Action</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -110,6 +111,7 @@ if (!is_loggedin()) {
                                             }
                                             ?>
                                         </td>
+                                        <td><?=$row->points?></td>
                                         <td>
                                             <?php if($taskStatus == 'pending'):?>
                                                 <span class="btn btn-sm btn-warning"><?= $taskStatus ?></span>
@@ -120,10 +122,11 @@ if (!is_loggedin()) {
                                             <?php endif; ?>
 
                                         </td>
+                                        <!--
                                         <td>
-                                        <a data-id="<?= $row->id ?>" class="btn btn-sm btn-info btn-primary" data-toggle="modal" data-target="#modal-default">Edit</a> |
-                                            <a data-id="<?= $row->id ?>" class="btn btn-sm btn-danger btn-delete">Remove</a>
-                                        </td>
+                                        <a data-id="< ?= $row->id ?>" class="btn btn-sm btn-info btn-primary" data-toggle="modal" data-target="#modal-default">Edit</a> |
+                                            <a data-id="< ?= $row->id ?>" class="btn btn-sm btn-danger btn-delete">Remove</a>
+                                        </td> -->
                                     </tr>
                                 <?php }
                                 $getData->close();
@@ -138,8 +141,9 @@ if (!is_loggedin()) {
                                     <th>Priority</th>
                                     <th>End Date</th>
                                     <th>Progress <span class="text-success">%</span></th>
+                                    <th>Points</th>
                                     <th>Status</th>
-                                    <th>Action</th>
+                                    <!-- <th>Action</th> -->
                                 </tr>
                             </tfoot>
                         </table>

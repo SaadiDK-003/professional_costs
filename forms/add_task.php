@@ -106,6 +106,12 @@ select[name="department_id"] {
                                             <input type="date" name="task_end_date" id="task_end_date" class="form-control">
                                         </div>
                                     </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="task_points">Task Points</label>
+                                            <input type="number" min="1" name="task_points" id="task_points" class="form-control" required>
+                                        </div>
+                                    </div>
                                     <div class="col-12 d-flex justify-content-end mt-3">
                                         <div class="form-group">
                                             <input type="hidden" name="add_task_db" value="add_task_db">

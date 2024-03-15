@@ -14,6 +14,9 @@ if(isset($_SESSION['user'])) {
     $sql = $db->query("SELECT * FROM `employees` WHERE `id`='$id'");
     $data = mysqli_fetch_object($sql);
     $username = $data->name;
+    $email = $data->email;
+    $contact = $data->contact;
+    $designation = $data->designation;
     $status = $data->status;
     $role = $data->role;
     $avatar = $data->avatar;

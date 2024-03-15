@@ -52,6 +52,7 @@ if (!is_loggedin()) {
                                     <th>Priority</th>
                                     <th>End Date</th>
                                     <th>progress <span class="text-success">%</span></th>
+                                    <th>Points</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
@@ -104,6 +105,7 @@ if (!is_loggedin()) {
                                             }
                                             ?>
                                         </td>
+                                        <td><?=$row->task_points?></td>
                                         <td>
                                             <?php if($taskStatus == 'pending'):?>
                                                 <span class="btn btn-sm btn-warning"><?= $taskStatus ?></span>
@@ -127,6 +129,7 @@ if (!is_loggedin()) {
                                     <th>Priority</th>
                                     <th>End Date</th>
                                     <th>progress <span class="text-success">%</span></th>
+                                    <th>Points</th>
                                     <th>Status</th>
                                 </tr>
                             </tfoot>

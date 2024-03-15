@@ -61,8 +61,22 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) 
 <script src="< ?=site_url?>dist/js/pages/dashboard2.js"></script>
 -->
+
 <script>
+      function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,en'}, 'google_translate_element');
+}
   $(document).ready(function() {
+
+ $(document).on('change', 'select[class="goog-te-combo"]', function(e){
+  e.preventDefault();
+  let lang = $(this).val();
+    if(lang == 'en') {
+      window.location.reload();
+    }
+ });
+
+
     bsCustomFileInput.init();
 
     $("#example1").DataTable({
@@ -78,9 +92,13 @@
       "ordering": true,
       "info": true,
       "autoWidth": false,
-      "responsive": true
+      "responsive": true,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     });
     $('#task_table').DataTable({
+      "responsive": true,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      "autoWidth": false,
       "columnDefs": [{
         "width":"25%",
         "targets": 1
@@ -89,6 +107,8 @@
 
   });
 </script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 
 </html>

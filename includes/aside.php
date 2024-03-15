@@ -132,6 +132,12 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a href="<?= site_url ?>forms/edit-profile.php" class="nav-link">
+                            <i class="nav-icon far fa-circle text-info"></i>
+                            <p>Edit Profile</p>
+                        </a>
+                    </li>
 
                 <?php } else { ?>
 
@@ -165,6 +171,35 @@
                         </a>
                     </li>
                 <?php } ?>
+                <li class="nav-item">
+                    <a href="<?= site_url ?>pages/view-profile.php" class="nav-link">
+                        <i class="nav-icon far fa-circle text-info"></i>
+                        <p>View Profile</p>
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Profile
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="< ?= site_url ?>pages/view-profile.php" class="nav-link">
+                                <i class="nav-icon far fa-circle text-info"></i>
+                                <p>View Profile</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="< ?= site_url ?>forms/edit-profile.php" class="nav-link">
+                                <i class="nav-icon far fa-circle text-info"></i>
+                                <p>Edit Profile</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>-->
                 <li class="nav-item">
                     <a href="<?= site_url ?>logout.php" class="nav-link">
                         <i class="nav-icon fas fa-circle text-danger"></i>

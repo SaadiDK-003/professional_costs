@@ -320,6 +320,7 @@ if (isset($_POST['add_task_db'])) {
     }
     $cols = substr($cols, 0, strlen($cols) - 1);
     $values = substr($values, 0, strlen($values) - 1);
+
     $add_task = $db->query("INSERT INTO `task` ($cols) VALUES($values)");
     if ($add_task) {
         echo json_encode(['class_' => 'alert-success', 'msg' => 'Task Added Successfully.']);
