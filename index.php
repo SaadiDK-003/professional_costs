@@ -4,6 +4,7 @@ if (!is_loggedin()) {
 ?><script>
         window.location.href = "login.php";
     </script><?php
+    exit();
             }
             include_once 'includes/header.php';
             include_once 'includes/aside.php';
