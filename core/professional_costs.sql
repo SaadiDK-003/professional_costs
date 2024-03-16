@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2024 at 08:31 AM
+-- Generation Time: Mar 16, 2024 at 12:01 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -44,6 +44,7 @@ t.task_desc AS 'desc',
 t.task_priority AS 'pri',
 t.task_end_date AS 'end_date',
 t.task_progress AS 'progress',
+t.task_points AS 'points',
 t.task_status,
 t.comments,
 e.name,
@@ -62,6 +63,7 @@ t.task_desc AS 'desc',
 t.task_priority AS 'pri',
 t.task_end_date AS 'end_date',
 t.task_progress AS 'progress',
+t.task_points AS 'points',
 t.task_status,
 t.comments,
 e.name,
@@ -81,6 +83,25 @@ d.department_name
 FROM employees e
 INNER JOIN departments d
 WHERE e.id=emp_id AND e.department=d.id$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_emp_data_by_id` (IN `emp_id` BIGINT)   SELECT
+e.id,
+e.name,
+e.email,
+e.password,
+e.contact,
+e.dob,
+e.address,
+e.avatar,
+e.joining_date,
+e.designation,
+e.department,
+e.role,
+e.status,
+d.department_name AS 'D_Name'
+FROM employees e
+INNER JOIN departments d
+WHERE e.role = 'employee' AND e.department = d.id AND e.id = emp_id$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `get_list_employees` ()   SELECT
 e.id,
@@ -108,6 +129,11 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `get_task_by_id_completed` (IN `emp_
 FROM task t
 WHERE t.employee_id=emp_id AND t.task_status ='completed'$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_total_emp_points` (IN `emp_id` BIGINT)   SELECT
+SUM(t.task_points) AS 'total_points'
+FROM task t
+WHERE t.task_status = 'completed' AND t.employee_id = emp_id$$
+
 DELIMITER ;
 
 -- --------------------------------------------------------
@@ -127,9 +153,9 @@ CREATE TABLE `departments` (
 
 INSERT INTO `departments` (`id`, `department_name`) VALUES
 (1, 'HR'),
-(2, 'Technical'),
-(3, 'Accounts'),
-(5, 'Cyber Security');
+(2, 'Intern'),
+(6, 'Accounts'),
+(7, 'Cyber Security');
 
 -- --------------------------------------------------------
 
@@ -144,11 +170,11 @@ CREATE TABLE `employees` (
   `password` varchar(255) NOT NULL,
   `contact` varchar(255) NOT NULL,
   `dob` date NOT NULL,
-  `address` text NOT NULL,
-  `avatar` text NOT NULL,
-  `joining_date` date NOT NULL,
-  `designation` varchar(255) NOT NULL,
-  `department` int(11) NOT NULL,
+  `address` text DEFAULT NULL,
+  `avatar` text DEFAULT NULL,
+  `joining_date` date DEFAULT NULL,
+  `designation` varchar(255) DEFAULT NULL,
+  `department` int(11) DEFAULT 2,
   `role` enum('employee','director') NOT NULL DEFAULT 'employee',
   `status` enum('0','1') NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -158,10 +184,10 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`id`, `name`, `email`, `password`, `contact`, `dob`, `address`, `avatar`, `joining_date`, `designation`, `department`, `role`, `status`) VALUES
-(1, 'director', 'director@gmail.com', '4297f44b13955235245b2497399d7a93', '588', '1971-09-30', 'Quos ut quisquam odi', 'uploads/966_abc.png', '2019-12-28', 'Est excepturi enim s', 1, 'director', '1'),
-(10, 'employee1', 'employee1@gmail.com', '4297f44b13955235245b2497399d7a93', '588', '1971-09-30', 'Quos ut quisquam odi', 'uploads/966_abc.png', '2019-12-28', 'Est excepturi enim s', 3, 'employee', '0'),
-(11, 'employee2', 'employee2@gmail.com', '4297f44b13955235245b2497399d7a93', '47841231231231', '1987-03-13', 'Consequuntur beatae ', 'uploads/104_abc.png', '1980-06-07', 'Technical Call Support', 2, 'employee', '0'),
-(12, 'employee3', 'employee3@gmail.com', '4297f44b13955235245b2497399d7a93', '47841231231231', '1987-03-13', 'Consequuntur beatae ', 'uploads/104_abc.png', '1980-06-07', 'Technical Call Support', 5, 'employee', '0');
+(1, 'director', 'director@gmail.com', '4297f44b13955235245b2497399d7a93', '588523465234', '1993-12-20', 'Quos ut quisquam odi', 'uploads/966_abc.png', '2019-12-28', 'Human Resources', 1, 'director', '1'),
+(16, 'employee1', 'employee1@gmail.com', '4297f44b13955235245b2497399d7a93', '123123123', '2015-01-09', 'a', 'uploads/306_abc.png', '2024-03-14', 'Security Guy', 7, 'employee', '0'),
+(17, 'employee2', 'employee2@gmail.com', '4297f44b13955235245b2497399d7a93', '123154123123', '2024-03-15', 'test xyz', 'uploads/716_abc.png', '2024-03-13', 'Accountant', 6, 'employee', '0'),
+(19, 'employee3', 'employee3@gmail.com', '4297f44b13955235245b2497399d7a93', '154123123123', '2016-01-16', 'adadsasdas', NULL, NULL, NULL, 2, 'employee', '0');
 
 -- --------------------------------------------------------
 
@@ -177,6 +203,13 @@ CREATE TABLE `meeting` (
   `meeting_link` text NOT NULL,
   `status` enum('available','end') NOT NULL DEFAULT 'available'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `meeting`
+--
+
+INSERT INTO `meeting` (`id`, `meeting_title`, `joining_date`, `employee_ids`, `meeting_link`, `status`) VALUES
+(1, 'test_meeting123', '2024-03-21 22:25:00', '17,16', 'https://google.com/', 'available');
 
 -- --------------------------------------------------------
 
@@ -194,15 +227,18 @@ CREATE TABLE `task` (
   `task_end_date` date NOT NULL,
   `task_progress` int(11) NOT NULL,
   `task_status` enum('pending','progress','completed') NOT NULL DEFAULT 'pending',
-  `comments` text NOT NULL
+  `comments` text NOT NULL,
+  `task_points` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `task`
 --
 
-INSERT INTO `task` (`id`, `employee_id`, `department_id`, `task_title`, `task_desc`, `task_priority`, `task_end_date`, `task_progress`, `task_status`, `comments`) VALUES
-(10, 10, 3, 'Sales Work', 'check all vendors sales for this month.', 'urgent', '2024-03-15', 100, 'completed', 'Done');
+INSERT INTO `task` (`id`, `employee_id`, `department_id`, `task_title`, `task_desc`, `task_priority`, `task_end_date`, `task_progress`, `task_status`, `comments`, `task_points`) VALUES
+(2, 16, 7, 'test_task', 'this is a task that needs to be done urgent because the client was is ASAP.', 'urgent', '2024-03-16', 100, 'completed', 'done', 50),
+(3, 16, 7, 'test_task', 'this is a task that needs to be done urgent because the client was is ASAP.', 'urgent', '2024-03-16', 70, 'progress', 'working.', 40),
+(4, 17, 6, 'check account sheets ', 'check them all please.', 'medium', '2024-03-17', 100, 'completed', 'done', 20);
 
 --
 -- Indexes for dumped tables
@@ -243,25 +279,25 @@ ALTER TABLE `task`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `meeting`
 --
 ALTER TABLE `meeting`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `task`
 --
 ALTER TABLE `task`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
