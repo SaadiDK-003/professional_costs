@@ -6,7 +6,7 @@ if ($host == 'localhost') {
 } else {
     $dirPath = 'professional_costs';
 }
-$data = '';
+$data = new stdClass();
 $username = '';
 $email = '';
 $contact = '';
