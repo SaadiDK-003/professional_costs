@@ -24,3 +24,12 @@ function check_end_date($db) {
     // it will be update to expire
     $db->query("UPDATE `pet_sitter` SET `status`='expired' WHERE DATE(end_date) = '$currentDate'");
 }
+
+function checkEmailExist($email,$db) {
+    $checkEmail = $db->query("SELECT `email` FROM `employees` WHERE `email`='$email'");
+    if(mysqli_num_rows($checkEmail) > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}

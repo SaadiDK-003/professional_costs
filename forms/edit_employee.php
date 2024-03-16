@@ -111,12 +111,11 @@ if (!is_loggedin()) {
                                         <div class="form-group">
                                             <label for="department">Department</label>
                                             <select class="form-control" name="department" id="department" required>
-                                                <option value="<?=$empData->department?>" selected hidden>Select Department</option>
                                                 <?php
                                                 $dep = $db->query("CALL `get_departments`()");
                                                 while($depData = mysqli_fetch_object($dep)):
                                                     ?>
-                                                <option value="<?=$depData->id?>"><?=$depData->department_name?></option>
+                                                <option <?=($empData->department == $depData->id) ? 'selected':''?> value="<?=$depData->id?>"><?=$depData->department_name?></option>
                                                 <?php endwhile;
                                                 $dep->close();
                                                 $db->next_result();

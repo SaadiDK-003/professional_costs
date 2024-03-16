@@ -66,7 +66,7 @@ include_once '../includes/aside.php';
                                 <div class="col-12 mb-3">
                                     <div class="content">
                                         <span>Job Position</span>
-                                        <h5><?= $role ?></h5>
+                                        <h5><?= $designation??'Intern' ?></h5>
                                     </div>
                                 </div>
                                 <div class="col-12 mb-3">

@@ -4,18 +4,7 @@ require_once 'core/database.php';
 require_once 'includes/head.php';
 
 $msg = '';
-$pageTitle = 'Professional Costs';
-
-if(isset($_POST['submit'])) {
-    $email = $_POST['email'];
-    $pwd = $_POST['password'];
-    $loginCheck = login($email,$pwd,$db);
-    if($loginCheck === true) {
-        ?><script>window.location.href = "index.php";</script><?php
-    } else {
-        $msg = 'Username or Password is incorrect!';
-    }
-}
+$pageTitle = 'Forget Password';
 
 ?>
 <body>
@@ -25,35 +14,22 @@ if(isset($_POST['submit'])) {
     <div class="row vh-100 align-items-center justify-content-center">
         <div class="col-lg-4 col-md-6">
             <h5 class="text-center text-danger mb-3 font-weight-bold"><?=$msg?></h5>
-            <h3 class="text-center mb-3 font-weight-bold"><?=$pageTitle?> | Login</h3>
-            <form id="login-form" action="" method="post">
+            <h3 class="text-center mb-3 font-weight-bold"><?=$pageTitle?></h3>
+            <form id="login-form" action="submit_req.php" method="post">
                 <div class="row">
                     <div class="col-12 mb-3">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" id="email" required>
-                    </div>
-                    <div class="col-12 mb-3">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" name="password" id="password" required>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group">
-                            <input type="checkbox" name="remember_me" id="remember_me">
-                            <label for="remember_me">Remember Me</label>
-                        </div>
-                    </div>
-                    <div class="col-6 d-flex justify-content-end">
-                        <a href="forgetPassword.php">Forget Password</a>
+                        <input type="email" class="form-control" name="forget_pwd_email" id="email" required>
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary w-100" name="submit" id="login-btn">Login</button>
+                        <button type="submit" class="btn btn-primary w-100" name="submit" id="login-btn">Submit</button>
                     </div>
                 </div>
             </form>
             <div class="row">
                 <div class="col-12 mt-3 text-center">
-                    <p class="text-bold">Need to Register ?</p>
-                    <a href="register.php" class="btn btn-info btn-md w-100">Register</a>
+                    <p class="text-bold">Back to Login</p>
+                    <a href="login.php" class="btn btn-info btn-md w-100">Login</a>
                 </div>
             </div>
         </div>
