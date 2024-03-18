@@ -230,8 +230,6 @@ if (isset($_POST['edit_emp'])) {
     } else {
         $_POST['password'] = md5($_POST['password']);
     }
-    echo $_POST['password'];
-    die();
     $cols = '';
     $values = array();
     if (!empty($_FILES['avatar_new']['name'])) {
