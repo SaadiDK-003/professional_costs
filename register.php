@@ -92,14 +92,14 @@ if (isset($_POST['submit'])) {
                             <input type="text" class="form-control" name="address" value="<?=(isset($_POST['address']) ? $_POST['address'] : '')?>" id="address" required>
                         </div>
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary w-100" name="submit" id="register-btn">Register</button>
+                            <button type="submit" class="btn btn-chocolate w-100" name="submit" id="register-btn">Register</button>
                         </div>
                     </div>
                 </form>
                 <div class="row">
                     <div class="col-12 mt-3 text-center">
                         <p class="text-bold">Already Registered ?</p>
-                        <a href="login.php" class="btn btn-info btn-md w-100">Login</a>
+                        <a href="login.php" class="btn btn-dark-chocolate btn-md w-100">Login</a>
                     </div>
                 </div>
             </div>
