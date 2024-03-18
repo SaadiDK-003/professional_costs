@@ -13,6 +13,7 @@ $contact            = '';
 $dob                = '';
 $addr               = '';
 $msg = '';
+$designation = '';
 $msgStatus = 0;
 if (isset($_POST['submit'])) {
     $username           = $_POST['username'];
@@ -22,10 +23,11 @@ if (isset($_POST['submit'])) {
     $contact            = $_POST['contact'];
     $dob                = $_POST['dob'];
     $addr               = $_POST['address'];
+    $designation        = $_POST['designation'];
 
     $dbUsers = $db->query("SELECT * FROM `employees` WHERE `name`='$username'");
 
-    if (empty($username) || empty($email) || empty($pwd) || empty($confirm_pwd) || empty($contact) || empty($dob) || empty($addr)) {
+    if (empty($username) || empty($email) || empty($pwd) || empty($confirm_pwd) || empty($contact) || empty($dob) || empty($addr) || empty($designation)) {
         $msg .= 'All fields are required!';
         $msgStatus = 0;
     } else if (mysqli_num_rows($dbUsers) > 0) {
@@ -38,7 +40,7 @@ if (isset($_POST['submit'])) {
         $msgStatus = 0;
     } else {
         $pwd = md5($pwd);
-        $sql = $db->query("INSERT INTO `employees` (name,email,password,contact,dob,address) VALUES('$username','$email','$pwd','$contact','$dob','$addr')");
+        $sql = $db->query("INSERT INTO `employees` (name,email,password,contact,dob,address,designation) VALUES('$username','$email','$pwd','$contact','$dob','$addr','$designation')");
         if ($sql) {
             $msg = 'Successfully Registered.';
             $msgStatus = 1;

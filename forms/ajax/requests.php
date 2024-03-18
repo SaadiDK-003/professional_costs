@@ -225,12 +225,13 @@ if (isset($_POST['edit_emp'])) {
     $pwd = $_POST['check_pwd'];
     $checkPwdQ = $db->query("SELECT `password` FROM `employees` WHERE `id`='$empEID'");
     $checkPwd = mysqli_fetch_object($checkPwdQ);
-    if ($pwd == $checkPwd) {
-        $_POST['password'] = $pwd;
+    if ($pwd == $checkPwd->password) {
+        $_POST['password'] = $checkPwd->password;
     } else {
         $_POST['password'] = md5($_POST['password']);
     }
-
+    echo $_POST['password'];
+    die();
     $cols = '';
     $values = array();
     if (!empty($_FILES['avatar_new']['name'])) {
