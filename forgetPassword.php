@@ -23,14 +23,14 @@ $pageTitle = 'Forget Password';
                             <input type="email" class="form-control" name="forget_pwd_email" id="email" required>
                         </div>
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary w-100" name="submit" id="login-btn">Submit</button>
+                            <button type="submit" class="btn btn-chocolate w-100" name="submit" id="login-btn">Submit</button>
                         </div>
                     </div>
                 </form>
                 <div class="row">
                     <div class="col-12 mt-3 text-center">
                         <p class="text-bold">Back to Login</p>
-                        <a href="login.php" class="btn btn-info btn-md w-100">Login</a>
+                        <a href="login.php" class="btn btn-dark-chocolate btn-md w-100">Login</a>
                     </div>
                 </div>
             </div>
