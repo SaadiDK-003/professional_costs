@@ -14,6 +14,7 @@ $pageTitle = 'Forget Password';
     <div class="container">
         <div class="row vh-100 align-items-center justify-content-center">
             <div class="col-lg-4 col-md-6">
+                <img src="./dist/img/pro_costs.png" class="d-block mx-auto w-50" alt="">
                 <h5 id="response_msg" class="text-center mb-3 font-weight-bold"></h5>
                 <h3 class="text-center mb-3 font-weight-bold"><?= $pageTitle ?></h3>
                 <form id="reset-form">
