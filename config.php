@@ -3,7 +3,7 @@
 $host = $_SERVER['HTTP_HOST'];
 if ($host == 'localhost') {
     $dirPath = 'professional_costs/';
-    $url = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://".$host."/".$dirPath;
+    $url = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://" . $host . "/" . $dirPath;
     // Database Credentials LOCAL
     define('HOST', 'localhost');
     define('USER', 'root');
@@ -11,7 +11,7 @@ if ($host == 'localhost') {
     define('DB', 'professional_costs');
 } else {
     $dirPath = 'panel/';
-    $url = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://".$host."/".$dirPath;
+    $url = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://" . $host . "/" . $dirPath;
     // Database Credentials LIVE
     define('HOST', 'localhost');
     define('USER', 'tamecare_admin');
@@ -21,4 +21,4 @@ if ($host == 'localhost') {
 
 // Global Usage Variables
 define('site_url', $url);
-define('website_title', 'YOUR TITLE HERE');
+define('website_title', 'Professional Costs');
