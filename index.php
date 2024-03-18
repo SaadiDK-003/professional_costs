@@ -4,7 +4,7 @@ if (!is_loggedin()) {
 ?><script>
         window.location.href = "login.php";
     </script><?php
-    exit();
+                exit();
             }
             include_once 'includes/header.php';
             include_once 'includes/aside.php';
@@ -17,12 +17,12 @@ if (!is_loggedin()) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Dashboard</h1>
+                    <h1 class="m-0"><?= $Dashboard_ ?? 'Dashboard' ?></h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item"><a href="#"><?= $Home_ ?? 'Home' ?></a></li>
+                        <li class="breadcrumb-item active"><?= $Dashboard_ ?? 'Dashboard' ?></li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -39,7 +39,7 @@ if (!is_loggedin()) {
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Employees List</h3>
+                                <h3 class="card-title"><?= $Emp_List_ ?? 'Employees List' ?></h3>
                                 <h3 class="card-title position-absolute text-success h3 msg-table" style="left:50%;transform:translateX(-50%)"></h3>
                             </div>
                             <!-- /.card-header -->
@@ -47,12 +47,12 @@ if (!is_loggedin()) {
                                 <table id="example2" class="table table-bordered table-hover text-center">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Contact</th>
-                                            <th>Designation</th>
-                                            <th>Department</th>
-                                            <th>Action</th>
+                                            <th><?= $Name_ ?? 'Name' ?></th>
+                                            <th><?= $Email_ ?? 'Email' ?></th>
+                                            <th><?= $Contact_ ?? 'Contact' ?></th>
+                                            <th><?= $Designation_ ?? 'Designation' ?></th>
+                                            <th><?= $Department_ ?? 'Department' ?></th>
+                                            <th><?= $Action_ ?? 'Action' ?></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -67,8 +67,8 @@ if (!is_loggedin()) {
                                                 <td><?= $row->designation ?></td>
                                                 <td><?= $row->department_name ?></td>
                                                 <td>
-                                                    <a href="forms/edit_employee.php?emp_id=<?= $row->id ?>" class="btn btn-sm btn-primary">Edit</a> |
-                                                    <a data-id="<?= $row->id ?>" class="btn btn-sm btn-danger btn-delete">Remove</a>
+                                                    <a href="forms/edit_employee.php?emp_id=<?= $row->id ?>" class="btn btn-sm btn-primary"><?= $Edit_ ?? 'Edit' ?></a> |
+                                                    <a data-id="<?= $row->id ?>" class="btn btn-sm btn-danger btn-delete"><?= $Delete_ ?? 'Delete' ?></a>
                                                 </td>
                                             </tr>
                                         <?php }
@@ -78,12 +78,12 @@ if (!is_loggedin()) {
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Contact</th>
-                                            <th>Designation</th>
-                                            <th>Department</th>
-                                            <th>Action</th>
+                                            <th><?= $Name_ ?? 'Name' ?></th>
+                                            <th><?= $Email_ ?? 'Email' ?></th>
+                                            <th><?= $Contact_ ?? 'Contact' ?></th>
+                                            <th><?= $Designation_ ?? 'Designation' ?></th>
+                                            <th><?= $Department_ ?? 'Department' ?></th>
+                                            <th><?= $Action_ ?? 'Action' ?></th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -139,7 +139,7 @@ if (!is_loggedin()) {
                             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-tasks"></i></span>
                             <div class="info-box-content">
                                 <span class="info-box-text">In-Progress Task</span>
-                                <a href="<?=site_url?>pages/view_task.php" class="btn btn-sm btn-primary w-25">View</a>
+                                <a href="<?= site_url ?>pages/view_task.php" class="btn btn-sm btn-primary w-25">View</a>
                             </div>
                         </div>
                     </div>
@@ -149,7 +149,7 @@ if (!is_loggedin()) {
                             <span class="info-box-icon bg-success elevation-1"><i class="fas fa-tasks"></i></span>
                             <div class="info-box-content">
                                 <span class="info-box-text">Completed Task</span>
-                                <a href="<?=site_url?>pages/view_task_completed.php" class="btn btn-sm btn-primary w-25">View</a>
+                                <a href="<?= site_url ?>pages/view_task_completed.php" class="btn btn-sm btn-primary w-25">View</a>
                             </div>
                         </div>
                     </div>
@@ -159,7 +159,7 @@ if (!is_loggedin()) {
                             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-chalkboard-teacher"></i></span>
                             <div class="info-box-content">
                                 <span class="info-box-text">Check Meetings</span>
-                                <a href="<?=site_url?>pages/view_meetings.php" class="btn btn-sm btn-primary w-25">View</a>
+                                <a href="<?= site_url ?>pages/view_meetings.php" class="btn btn-sm btn-primary w-25">View</a>
                             </div>
                         </div>
                     </div>

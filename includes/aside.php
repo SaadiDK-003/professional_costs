@@ -26,7 +26,7 @@
                 <li class="nav-item">
                     <a href="<?= site_url ?>" class="nav-link active">
                         <i class="fas fa-home nav-icon"></i>
-                        <p>Dashboard</p>
+                        <p><?= $Dashboard_ ?? 'Dashboard' ?></p>
                     </a>
                 </li>
                 <?php if ($role == 'director') { ?>
@@ -35,7 +35,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon far fa-building"></i>
                             <p>
-                                Department
+                                <?= $Department_ ?? 'Department' ?>
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
@@ -43,13 +43,13 @@
                             <li class="nav-item">
                                 <a href="<?= site_url ?>forms/add_department.php" class="nav-link">
                                     <i class="nav-icon far fa-circle"></i>
-                                    <p>Add Department</p>
+                                    <p><?= $Add_Department_ ?? 'Add Department' ?></p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="<?= site_url ?>pages/departments_list.php" class="nav-link">
                                     <i class="nav-icon far fa-circle"></i>
-                                    <p>Manage Department</p>
+                                    <p><?= $Manage_Department_ ?? 'Manage Department' ?></p>
                                 </a>
                             </li>
                         </ul>
@@ -59,7 +59,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-user-friends"></i>
                             <p>
-                                Employees
+                                <?= $Employees_ ?? 'Employees' ?>
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
@@ -67,13 +67,13 @@
                             <li class="nav-item">
                                 <a href="<?= site_url ?>forms/add_employee.php" class="nav-link">
                                     <i class="nav-icon far fa-circle"></i>
-                                    <p>Register new Employee</p>
+                                    <p><?= $Reg_Employees_ ?? 'Register Employee' ?></p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="<?= site_url ?>pages/employees_list.php" class="nav-link">
                                     <i class="nav-icon far fa-circle"></i>
-                                    <p>Manage Employees</p>
+                                    <p><?= $Manage_Employees_ ?? 'Manage Employees' ?></p>
                                 </a>
                             </li>
                         </ul>
@@ -83,7 +83,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-tasks"></i>
                             <p>
-                                Task
+                                <?= $Task_ ?? 'Task' ?>
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
@@ -91,19 +91,19 @@
                             <li class="nav-item">
                                 <a href="<?= site_url ?>forms/add_task.php" class="nav-link">
                                     <i class="nav-icon far fa-circle"></i>
-                                    <p>Add Task</p>
+                                    <p><?= $Add_Task_ ?? 'Add Task' ?></p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="<?= site_url ?>pages/task_list.php" class="nav-link">
                                     <i class="nav-icon far fa-circle"></i>
-                                    <p>In-Progress Task</p>
+                                    <p><?= $In_Prog_Task_ ?? 'In-Progress Task' ?></p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="<?= site_url ?>pages/task_list_completed.php" class="nav-link">
                                     <i class="nav-icon far fa-circle"></i>
-                                    <p>Completed Task</p>
+                                    <p><?= $Completed_Task_ ?? 'Completed Task' ?></p>
                                 </a>
                             </li>
                         </ul>
@@ -113,7 +113,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-chalkboard-teacher"></i>
                             <p>
-                                Meeting
+                                <?= $Meeting_ ?? 'Meeting' ?>
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
@@ -121,13 +121,13 @@
                             <li class="nav-item">
                                 <a href="<?= site_url ?>forms/add_meeting.php" class="nav-link">
                                     <i class="nav-icon far fa-circle"></i>
-                                    <p>Add Meeting</p>
+                                    <p><?= $Add_Meeting_ ?? 'Add Meeting' ?></p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="<?= site_url ?>pages/check_meetings.php" class="nav-link">
                                     <i class="nav-icon far fa-circle"></i>
-                                    <p>Manage Meeting</p>
+                                    <p><?= $Manage_Meeting_ ?? 'Manage Meeting' ?></p>
                                 </a>
                             </li>
                         </ul>
@@ -135,7 +135,7 @@
                     <li class="nav-item">
                         <a href="<?= site_url ?>forms/edit-profile.php" class="nav-link">
                             <i class="nav-icon far fa-circle text-info"></i>
-                            <p>Edit Profile</p>
+                            <p><?= $Edit_Profile_ ?? 'Edit Profile' ?></p>
                         </a>
                     </li>
 
@@ -145,7 +145,7 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-tasks"></i>
                             <p>
-                                Task
+                                <?= $Task_ ?? 'Task' ?>
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
@@ -153,13 +153,13 @@
                             <li class="nav-item">
                                 <a href="<?= site_url ?>pages/view_task.php" class="nav-link">
                                     <i class="nav-icon far fa-circle text-info"></i>
-                                    <p>View Task</p>
+                                    <p><?= $View_Task_ ?? 'View Task' ?></p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="<?= site_url ?>pages/view_task_completed.php" class="nav-link">
                                     <i class="nav-icon far fa-circle text-info"></i>
-                                    <p>Completed Task</p>
+                                    <p><?= $Completed_Task_ ?? 'Completed Task' ?></p>
                                 </a>
                             </li>
                         </ul>
@@ -174,7 +174,7 @@
                 <li class="nav-item">
                     <a href="<?= site_url ?>pages/view-profile.php" class="nav-link">
                         <i class="nav-icon far fa-circle text-info"></i>
-                        <p>View Profile</p>
+                        <p><?= $View_Profile_ ?? 'View Profile' ?></p>
                     </a>
                 </li>
                 <!-- <li class="nav-item">
@@ -203,7 +203,7 @@
                 <li class="nav-item">
                     <a href="<?= site_url ?>logout.php" class="nav-link">
                         <i class="nav-icon fas fa-circle text-danger"></i>
-                        <p>Logout</p>
+                        <p><?= $Logout_ ?? 'Logout' ?></p>
                     </a>
                 </li>
 

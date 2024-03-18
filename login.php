@@ -4,7 +4,7 @@ require_once 'core/database.php';
 require_once 'includes/head.php';
 
 $msg = '';
-$pageTitle = 'Professional Costs';
+$pageTitle = 'Login';
 
 if(isset($_POST['submit'])) {
     $email = $_POST['email'];
@@ -24,8 +24,9 @@ if(isset($_POST['submit'])) {
 <div class="container">
     <div class="row vh-100 align-items-center justify-content-center">
         <div class="col-lg-4 col-md-6">
+            <img src="./dist/img/pro_costs.png" class="d-block mx-auto w-50" alt="">
             <h5 class="text-center text-danger mb-3 font-weight-bold"><?=$msg?></h5>
-            <h3 class="text-center mb-3 font-weight-bold"><?=$pageTitle?> | Login</h3>
+            <h3 class="text-center mb-3 font-weight-bold"><?=$pageTitle?></h3>
             <form id="login-form" action="" method="post">
                 <div class="row">
                     <div class="col-12 mb-3">

@@ -1,0 +1,2 @@
+<?php
+$Home_ = 'Home';

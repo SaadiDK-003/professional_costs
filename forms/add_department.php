@@ -1,20 +1,20 @@
 <?php
 require_once '../core/database.php';
-$pageTitle = 'Add Department';
+$pageTitle = $Add_Department_ ?? 'Add Department';
 if (!is_loggedin()) {
 ?><script>
         window.location.href = "../login.php";
     </script><?php
-            } else if($role != 'director') {
-             ?>
-             <script>
-            window.location.href = "../index.php";
-        </script>
-             <?php
+            } else if ($role != 'director') {
+                ?>
+    <script>
+        window.location.href = "../index.php";
+    </script>
+<?php
             }
             include_once '../includes/header.php';
             include_once '../includes/aside.php';
-                ?>
+?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -23,12 +23,12 @@ if (!is_loggedin()) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1><?=$pageTitle?></h1>
+                    <h1><?= $pageTitle ?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active"><?=$pageTitle?></li>
+                        <li class="breadcrumb-item"><a href="#"><?= $Home_ ?? 'Home' ?></a></li>
+                        <li class="breadcrumb-item active"><?= $pageTitle ?></li>
                     </ol>
                 </div>
             </div>
@@ -50,13 +50,13 @@ if (!is_loggedin()) {
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="department_name">Department Name</label>
+                                            <label for="department_name"><?= $Department_Name_ ?? 'Department Name' ?></label>
                                             <input type="text" class="form-control" name="department_name" id="department_name" required>
                                         </div>
                                     </div>
                                     <div class="col-12 d-flex justify-content-end mt-3">
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary">Add Employee</button>
+                                            <button type="submit" class="btn btn-primary"><?= $Add_Department_ ?? 'Add Department' ?></button>
                                             </select>
                                         </div>
                                     </div>
