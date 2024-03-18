@@ -138,8 +138,8 @@ if (!is_loggedin()) {
                         <div class="info-box">
                             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-tasks"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text">In-Progress Task</span>
-                                <a href="<?= site_url ?>pages/view_task.php" class="btn btn-sm btn-primary w-25">View</a>
+                                <span class="info-box-text"><?= $In_Prog_Task_ ?? 'In-Progress Task' ?></span>
+                                <a href="<?= site_url ?>pages/view_task.php" class="btn btn-sm btn-primary w-25"><?= $View_ ?? 'View' ?></a>
                             </div>
                         </div>
                     </div>
@@ -148,8 +148,8 @@ if (!is_loggedin()) {
                         <div class="info-box mb-3">
                             <span class="info-box-icon bg-success elevation-1"><i class="fas fa-tasks"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text">Completed Task</span>
-                                <a href="<?= site_url ?>pages/view_task_completed.php" class="btn btn-sm btn-primary w-25">View</a>
+                                <span class="info-box-text"><?= $Completed_Task_ ?? 'Completed Task' ?></span>
+                                <a href="<?= site_url ?>pages/view_task_completed.php" class="btn btn-sm btn-primary w-25"><?= $View_ ?? 'View' ?></a>
                             </div>
                         </div>
                     </div>
@@ -158,8 +158,8 @@ if (!is_loggedin()) {
                         <div class="info-box mb-3">
                             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-chalkboard-teacher"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text">Check Meetings</span>
-                                <a href="<?= site_url ?>pages/view_meetings.php" class="btn btn-sm btn-primary w-25">View</a>
+                                <span class="info-box-text"><?= $Check_Meetings_ ?? 'Check Meetings' ?></span>
+                                <a href="<?= site_url ?>pages/view_meetings.php" class="btn btn-sm btn-primary w-25"><?= $View_ ?? 'View' ?></a>
                             </div>
                         </div>
                     </div>

@@ -167,7 +167,7 @@
                     <li class="nav-item">
                         <a href="<?= site_url ?>pages/view_meetings.php" class="nav-link">
                             <i class="nav-icon fas fa-chalkboard-teacher text-info"></i>
-                            <p>Check Meetings</p>
+                            <p><?=$Check_Meetings_??'Check Meetings'?></p>
                         </a>
                     </li>
                 <?php } ?>

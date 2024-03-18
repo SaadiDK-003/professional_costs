@@ -27,6 +27,8 @@ $Edit_ = html_entity_decode(htmlentities("تعديل"));
 $Update_ = html_entity_decode(htmlentities("تحديث"));
 $Delete_ = html_entity_decode(htmlentities("حذف"));
 $Close_ = html_entity_decode(htmlentities("يغلق"));
+$Check_Meetings_ = html_entity_decode(htmlentities("التحقق من الاجتماعات"));
+$View_ = html_entity_decode(htmlentities("مشاهدة"));
 
 // Table
 $Name_ = html_entity_decode(htmlentities("اسم"));
