@@ -10,6 +10,7 @@ $Add_Department_ = html_entity_decode(htmlentities("إضافة قسم"));
 $Update_Department_ = html_entity_decode(htmlentities("تحديث القسم"));
 $Manage_Department_ = html_entity_decode(htmlentities("إدارة القسم"));
 $Employees_ = html_entity_decode(htmlentities("موظفين"));
+$Add_Employees_ = html_entity_decode(htmlentities("إضافة موظف"));
 $Reg_Employees_ = html_entity_decode(htmlentities("تسجيل الموظف"));
 $Manage_Employees_ = html_entity_decode(htmlentities("إدارة الموظفين"));
 $Task_ = html_entity_decode(htmlentities("مهمات"));
@@ -29,6 +30,7 @@ $Delete_ = html_entity_decode(htmlentities("حذف"));
 $Close_ = html_entity_decode(htmlentities("يغلق"));
 $Check_Meetings_ = html_entity_decode(htmlentities("التحقق من الاجتماعات"));
 $View_ = html_entity_decode(htmlentities("مشاهدة"));
+$Details_ = html_entity_decode(htmlentities("تفاصيل"));
 
 // Table
 $Name_ = html_entity_decode(htmlentities("اسم"));

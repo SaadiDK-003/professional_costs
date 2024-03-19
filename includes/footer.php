@@ -105,7 +105,8 @@
       "columnDefs": [{
         "width": "25%",
         "targets": 1
-      }]
+      }],
+      <?= ($lang == 'ar_AR') ? "language: language" : "" ?>
     });
 
   });

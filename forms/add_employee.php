@@ -1,6 +1,6 @@
 <?php
 require_once '../core/database.php';
-$pageTitle = 'Add Employee';
+$pageTitle = $Add_Employees_??'Add Employee';
 if (!is_loggedin()) {
 ?><script>
         window.location.href = "../login.php";
@@ -27,7 +27,7 @@ if (!is_loggedin()) {
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#"><?=$Home_??'Home'?></a></li>
                         <li class="breadcrumb-item active"><?=$pageTitle?></li>
                     </ol>
                 </div>
@@ -42,7 +42,7 @@ if (!is_loggedin()) {
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><?=$pageTitle?> Details</h3>
+                            <h3 class="card-title"><?=$pageTitle?> <?=$Details_??'Details'?></h3>
                             <h3 class="card-title position-absolute text-success h3 msg-table" style="left:50%;transform:translateX(-50%)"></h3>
                         </div>
                         <!-- /.card-header -->
