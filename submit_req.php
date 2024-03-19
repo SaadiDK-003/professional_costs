@@ -29,8 +29,8 @@ if (isset($_POST['forget_pwd_email'])) {
             $mail->isSMTP();                                            //Send using SMTP
             $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username = 'arshidni2023@gmail.com';
-            $mail->Password = 'vtujprgdlrywzycz';
+            $mail->Username = 'verrrlo22@gmail.com';
+            $mail->Password = 'hsnjctuunfcqgblp';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
             $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
