@@ -35,7 +35,7 @@ if (isset($_POST['forget_pwd_email'])) {
             $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
             //Recipients
-            $mail->setFrom('info@professionalcoast.com', 'Mailer');
+            $mail->setFrom('info@professionalcoast.com', 'Pro Costs');
             $mail->addAddress($forgetPwdEmail);     //Add a recipient
             // $mail->addAddress('ellen@example.com');               //Name is optional
             // $mail->addReplyTo('info@example.com', 'Information');
