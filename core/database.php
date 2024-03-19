@@ -6,8 +6,6 @@ if ($host == 'localhost') {
 } else {
     $dirPath = 'professional_costs';
 }
-
-// die($_SESSION['lang']);
 $data = new stdClass();
 $username = '';
 $email = '';
@@ -32,6 +30,7 @@ if(isset($_SESSION['user'])) {
     $role = $data->role;
     $avatar = $data->avatar;
 }
+
 if (isset($_POST['lang_changer'])) {
     $_SESSION['lang'] = $_POST['lang_changer'];
 }

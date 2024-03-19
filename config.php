@@ -10,13 +10,13 @@ if ($host == 'localhost') {
     define('PWD', '');
     define('DB', 'professional_costs');
 } else {
-    $dirPath = 'panel/';
-    $url = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://" . $host . "/" . $dirPath;
+    $dirPath = 'professional_costs/';
+    $url = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://".$host."/".$dirPath;
     // Database Credentials LIVE
     define('HOST', 'localhost');
-    define('USER', 'tamecare_admin');
-    define('PWD', 'f_aPrl2)Fc$D');
-    define('DB', 'tamecare_panel');
+    define('USER', 'saadigamers_flat');
+    define('PWD', 'TqyM*itQNGkr');
+    define('DB', 'saadigamers_ecom');
 }
 
 // Global Usage Variables
