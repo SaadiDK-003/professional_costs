@@ -1,11 +1,9 @@
 <?php
-//Import PHPMailer classes into the global namespace
-//These must be at the top of your script, not inside a function
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-//Load Composer's autoloader
 require './php_mailer/vendor/autoload.php';
 require_once './core/database.php';
 include_once './core/functions.php';
@@ -37,14 +35,7 @@ if (isset($_POST['forget_pwd_email'])) {
             //Recipients
             $mail->setFrom('info@professionalcoast.com', 'Pro Costs');
             $mail->addAddress($forgetPwdEmail);     //Add a recipient
-            // $mail->addAddress('ellen@example.com');               //Name is optional
-            // $mail->addReplyTo('info@example.com', 'Information');
-            // $mail->addCC('cc@example.com');
-            // $mail->addBCC('bcc@example.com');
 
-            //Attachments
-            // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-            // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
 
             //Content
             $mail->isHTML(true);                                  //Set email format to HTML

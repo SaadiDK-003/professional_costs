@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2024 at 12:01 PM
+-- Generation Time: Mar 19, 2024 at 11:08 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -187,7 +187,8 @@ INSERT INTO `employees` (`id`, `name`, `email`, `password`, `contact`, `dob`, `a
 (1, 'director', 'director@gmail.com', '4297f44b13955235245b2497399d7a93', '588523465234', '1993-12-20', 'Quos ut quisquam odi', 'uploads/966_abc.png', '2019-12-28', 'Human Resources', 1, 'director', '1'),
 (16, 'employee1', 'employee1@gmail.com', '4297f44b13955235245b2497399d7a93', '123123123', '2015-01-09', 'a', 'uploads/306_abc.png', '2024-03-14', 'Security Guy', 7, 'employee', '0'),
 (17, 'employee2', 'employee2@gmail.com', '4297f44b13955235245b2497399d7a93', '123154123123', '2024-03-15', 'test xyz', 'uploads/716_abc.png', '2024-03-13', 'Accountant', 6, 'employee', '0'),
-(19, 'employee3', 'employee3@gmail.com', '4297f44b13955235245b2497399d7a93', '154123123123', '2016-01-16', 'adadsasdas', NULL, NULL, NULL, 2, 'employee', '0');
+(19, 'employee3', 'info.netxs@gmail.com', '28d378ba1d9c2381f1116b6069b2b5c0', '154123123123', '2016-01-16', 'adadsasdas', NULL, NULL, NULL, 2, 'employee', '0'),
+(21, 'emplyoyee5', 'emplyoyee5@gmail.com', '4297f44b13955235245b2497399d7a93', '112314512313', '1993-12-20', 'test street', NULL, NULL, 'Developer', 2, 'employee', '0');
 
 -- --------------------------------------------------------
 
@@ -285,7 +286,7 @@ ALTER TABLE `departments`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `meeting`
